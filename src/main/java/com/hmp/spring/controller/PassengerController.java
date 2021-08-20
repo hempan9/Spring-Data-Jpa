@@ -1,14 +1,9 @@
 package com.hmp.spring.controller;
 
-import javax.websocket.server.PathParam;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hmp.spring.dao.PassengerRepository;
@@ -16,6 +11,7 @@ import com.hmp.spring.model.Passenger;
 import com.hmp.spring.service.PassengerService;
 
 @RestController
+@Transactional
 @RequestMapping("/")
 public class PassengerController {
 	@Autowired
@@ -38,7 +34,6 @@ public class PassengerController {
 		passenger.setEmail(email);
 		passenger.setPhone(phone);
 		passengerRepository.save(passenger);
-	
 		return "Successfully saved!";
 	}
 @GetMapping("/find")
@@ -47,5 +42,12 @@ public Iterable<Passenger> getAllInfo() {
 	return passengerRepository.findAll();
 	
 }
-
+@DeleteMapping("/deletebyid")
+	public String delete(@RequestParam("idNum") Integer id){
+		return passengerService.deleteById(id);
+}
+@DeleteMapping("/deletebyname")
+	public Iterable<Passenger> deleteByFirstname(@RequestParam("fname") String firstname ){
+		return passengerService.deleteByFirstName(firstname);
+}
 }

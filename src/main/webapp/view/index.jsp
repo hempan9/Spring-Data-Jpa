@@ -22,6 +22,8 @@
 <form action="find">
 <input type="submit" value = "Display all Data">
 </form>
+    <a href="../delete.jsp">Delete Entry Using Passenger Id</a> <br/>
+    <a href="../deletebyname.jsp">Delete Entry Using Passenger Name</a>
 </div>
 </body>
 </html>
