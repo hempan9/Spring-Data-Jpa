@@ -13,10 +13,17 @@
 <input type= "text" placeholder ="Last Name" name= "lname" required><br/>
 <input type = "email" placeholder = Email name="email" required><br/>
 <input type = "text" placeholder= Phone name="phone" maxlength="10" required><br/>
-<input type="submit" value="MakeEntry">
+    <input type = "text" placeholder= deleted name="deleted" maxlength="10" required><br/>
+
+    <input type="submit" value="MakeEntry">
 
 </form>
+<%--    <%--%>
 
+
+<%--            response.sendRedirect("index.jsp");--%>
+
+<%--    %>--%>
 </div>
 <div align="center">
 <form action="find">

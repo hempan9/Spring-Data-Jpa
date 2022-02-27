@@ -7,10 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.SQLDelete;
 import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name="passengers")
+
 public class Passenger {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,7 +25,17 @@ public class Passenger {
 	private String email;
 	@Column(name="Phone")
 	private String phone;
-	
+
+	public String getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(String deleted) {
+		this.deleted = deleted;
+	}
+
+	@Column(name = "deleted")
+	private String deleted;
 	
 	public int getId() {
 		return id;

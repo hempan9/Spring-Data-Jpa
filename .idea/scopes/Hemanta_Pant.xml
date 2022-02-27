@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Hemanta Pant" pattern="!src:*..*&amp;&amp;!lib:*..*&amp;&amp;!test:*..*" />
+</component>
